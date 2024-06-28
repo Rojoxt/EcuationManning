@@ -1,6 +1,9 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)  # Esto permite solicitudes CORS desde cualquier origen
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 def manning_equation(n, A, R, S):
     return (1 / n) * A * (R ** (2/3)) * (S ** (1/2))
