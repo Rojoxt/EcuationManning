@@ -7,7 +7,7 @@ app = Flask(__name__)
 CORS(app)  # Esto permite solicitudes CORS desde cualquier origen
 CORS(app, resources={r"/*": {"origins": "*"}})
 
-@app.route('/calcular', methods=['POST'])
+@app.route('/calcula', methods=['POST'])
 def calcular_bernoulli():
     try:
         data = request.json
