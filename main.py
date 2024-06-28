@@ -18,5 +18,9 @@ def calculate():
     Q = manning_equation(n, A, R, S)
     return jsonify({'Q': Q})
 
+@app.route('/', methods=['GET'])
+def index():
+    return "La aplicación está corriendo correctamente"
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
