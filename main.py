@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, resources={r"/calculate": {"origins": "https://cdpn.io"}})  # Permitir solo desde CodePen
+CORS(app, resources={r"/calculate": {"origins": "*"}})  # Permitir solo desde CodePen
 
 @app.route('/calculate', methods=['POST', 'OPTIONS'])
 def calculate():
