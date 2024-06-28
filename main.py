@@ -15,7 +15,7 @@ def calcular_bernoulli():
         A = float(data.get('A'))
         R = float(data.get('R'))
         S = float(data.get('S'))
-        result = (1 / n) * A * (R ** (2 / 3)) * (S ** (1 / 2))
+        result = (1/n) * A * math.pow(R, 2/3) * math.sqrt(S)
         return jsonify({'Q': result}), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 400
@@ -23,7 +23,7 @@ def calcular_bernoulli():
 
 @app.route('/', methods=['GET'])
 def index():
-    return "La aplicación BernoulliAPI está corriendo correctamente"
+    return "La aplicación  ecuacion de manning está corriendo correctamente"
 
 
 if __name__ == '__main__':
