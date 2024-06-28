@@ -20,7 +20,7 @@ def calculate():
         Q = manning_equation(n, A, R, S)
         response = jsonify({'Q': Q})
 
-    response.headers.add('Access-Control-Allow-Origin', 'https://cdpn.io')
+    response.headers.add('Access-Control-Allow-Origin', 'https://codepen.io')
     response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
     response.headers.add('Access-Control-Allow-Methods', 'POST')
     return response
