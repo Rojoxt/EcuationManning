@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, resources={r"/calculate": {"origins": "*"}})  # Permitir solo desde CodePen
+CORS(app, resources={r"/calculate": {"origins": "https://cdpn.io"}})
 
 @app.route('/calculate', methods=['POST', 'OPTIONS'])
 def calculate():
@@ -15,12 +15,12 @@ def calculate():
 
     try:
         data = request.json
-        n = data.get('n')
-        A = data.get('A')
-        R = data.get('R')
-        S = data.get('S')
+        n = float(data.get('n'))  # Convertir a float si es necesario
+        A = float(data.get('A'))
+        R = float(data.get('R'))
+        S = float(data.get('S'))
         result = (1 / n) * A * (R ** (2/3)) * (S ** (1/2))
-        return jsonify({'result': result}), 200
+        return jsonify({'Q': result}), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 400
 
